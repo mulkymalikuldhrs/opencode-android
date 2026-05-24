@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📧 Contact Maintainer
+    url: mailto:mulkymalikuldhaher@email.com
+    about: Direct contact for private inquiries
+  - name: 💬 GitHub Discussions
+    url: https://github.com/mulkymalikuldhrs/opencode-android/discussions
+    about: Ask questions and discuss ideas with the community

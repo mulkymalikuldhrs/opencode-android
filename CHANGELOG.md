@@ -2,7 +2,15 @@
 
 All notable changes to Opencode Android will be documented in this file.
 
-## [Unreleased]
+## [1.0.0] - 2026-03-04 (Maintenance Release)
+
+### Added
+
+- 🎉 Official v1.0.0 maintenance release
+- Complete trilingual README (English, Bahasa Indonesia, 中文)
+- Community files: CODE_OF_CONDUCT.md, SECURITY.md, CONTRIBUTING.md
+- GitHub issue templates, PR template, and FUNDING.yml
+- Repository consolidation and cleanup
 
 ## [1.0.0] - 2026-01-31
 

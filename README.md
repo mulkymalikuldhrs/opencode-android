@@ -1,362 +1,196 @@
-# 🤖 Opencode Android Client
-
 <div align="center">
 
-[![Opencode Android Logo](https://img.shields.io/badge/Opencode-Android-v1.0.0-purple)](https://github.com/mulkymalikuldhrs/opencode-android/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Platform: Android](https://img.shields.io/badge/Platform-Android-blue.svg)]()
-[![GitHub Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/opencode-android?style=social)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/mulkymalikuldhrs/opencode-android?style=social)](https://github.com/mulkymalikuldhrs/opencode-android/issues)
-[![GitHub Issues](https://img.shields.io/github/issues-closed/mulkymalikuldhrs/opencode-android?style=social)](https://github.com/mulkymalikuldhrs/opencode-android/issues?q=is%3Aopen+is%3Atrue)
+<a href="https://github.com/mulkymalikuldhrs/opencode-android">
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=8B5CF6&center=true&vCenter=true&multiline=false&repeat=true&width=500&height=50&lines=Opencode+Android;AI+Coding+Agent+Client;Code+%E2%80%A2+Chat+%E2%80%A2+Terminal" alt="Typing SVG" />
+</a>
 
-**⚠️ Independent OpenCode Android Client - Community Build**
+<br/>
+
+[![Version](https://img.shields.io/badge/version-1.0.0-8B5CF6?style=for-the-badge&logo=semver)](https://github.com/mulkymalikuldhrs/opencode-android)
+[![Kotlin](https://img.shields.io/badge/Kotlin-100%25-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Android](https://img.shields.io/badge/Android-7.0+-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/opencode-android?style=for-the-badge&logo=github&color=yellow)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
+[![GitHub](https://img.shields.io/badge/GitHub-mulkymalikuldhrs-181717?style=for-the-badge&logo=github)](https://github.com/mulkymalikuldhrs/opencode-android)
+
+<br/>
+
+**Independent Android client for OpenCode AI coding agent — chat, terminal, file manager, and code editor in one native app.**
+
+[🐛 Report Bug](https://github.com/mulkymalikuldhrs/opencode-android/issues) &bull; [✨ Request Feature](https://github.com/mulkymalikuldhrs/opencode-android/issues)
 
 </div>
 
 ---
 
-## ✨ Features
+## 🇬🇧 English
 
-### 🚀 Core Capabilities
-- **Full OpenCode API Integration** - Connect to OpenCode server (50+ endpoints)
-- **Real-Time Chat** - SSE (Server-Sent Events) streaming for instant AI responses
-- **Session Management** - Create, fork, switch between sessions
-- **Terminal Access** - Execute shell commands on server
-- **File Browser** - Read, search, and manage project files
-- **Code Editor** - Full-featured code editing with syntax highlighting
-- **Multi-Provider Support** - OpenAI, Anthropic Claude, 75+ LLM providers
+### ✨ Overview
 
-### 📱 Android Native
-- **Material Design 3** - Beautiful dark theme with gradient accents
-- **Bottom Navigation** - Intuitive 4-tab layout
-- **Coroutines** - Asynchronous, non-blocking operations
-- **Auto-Reconnection** - Maintains connection stability
-- **Background Service** - Keeps sessions alive
+Opencode Android is a native Android client for the OpenCode AI coding agent. It connects to an OpenCode server and provides real-time chat with AI, terminal access, file browsing, and a code editor — all in a beautiful Material Design 3 dark theme. With SSE streaming for instant AI responses and support for 75+ LLM providers, it's the most powerful mobile coding companion.
 
-### 🎯 Developer Tools
-- **Real AI Responses** - Powered by OpenCode server
-- **File Diff Tracking** - See code changes across sessions
-- **Command Execution** - Execute commands via OpenCode shell API
-- **Git Integration** - VCS operations through OpenCode
-- **LSP Support** - Language Server Protocol for code intelligence
-- **MCP Protocol** - Model Context Protocol for advanced integrations
+### 🏗️ Architecture
 
----
-
-## 📸 Screenshots
-
-| Chat Interface | Terminal | File Manager | Code Editor |
-|:-----------:|:----------:|:------------:|:------------:|
-| ![Chat](docs/screenshots/chat.png) | ![Terminal](docs/screenshots/terminal.png) | ![Files](docs/screenshots/files.png) | ![Editor](docs/screenshots/editor.png) |
-
-*Full UI implementation with real OpenCode backend connectivity*
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-**Android Device:**
-- Android 7.0 (API 24) or higher
-- 2GB+ RAM recommended
-- 500MB+ storage space
-
-**Backend (Required):**
-- **Option 1: Termux** (Recommended for Android)
-  ```bash
-  pkg update -y
-  pkg install nodejs-lts -y
-  npm i -g opencode-ai
-  opencode serve --port 4096
-  ```
-
-- **Option 2: PC/Mac/Linux**
-  ```bash
-  npm install -g opencode-ai
-  opencode serve --port 4096
-  ```
-
-### Installation
-
-#### Method 1: APK Install
-```bash
-# Build APK
-./build.sh
-
-# Install via ADB
-adb install app/build/outputs/apk/release/app-release-unsigned.apk
-
-# Or sideload APK directly
+```
+┌────────────────────────────────────────────────────────────┐
+│                Opencode Android Architecture                │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│  ┌──────────┐    ┌──────────────┐    ┌──────────────────┐ │
+│  │  Kotlin  │    │   OkHttp     │    │   OpenCode       │ │
+│  │  App     │───▶│   + SSE      │───▶│   Server API     │ │
+│  │  (MD3)   │    │   Client     │    │   (50+ Endpoints)│ │
+│  └──────────┘    └──────────────┘    └──────────────────┘ │
+│       │                                       │            │
+│       ▼                                       ▼            │
+│  ┌──────────┐    ┌──────────────┐    ┌──────────────────┐ │
+│  │  Chat +  │    │  Terminal +  │    │  Code Editor +   │ │
+│  │  Session │    │  Commands    │    │  File Manager    │ │
+│  └──────────┘    └──────────────┘    └──────────────────┘ │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
 ```
 
-#### Method 2: Android Studio
+### 🎯 Features
+
+| Feature | Description |
+|---------|-------------|
+| 💬 **Real-Time Chat** | SSE streaming for instant AI responses |
+| 🖥️ **Terminal Access** | Execute shell commands on server |
+| 📁 **File Manager** | Browse, read, search, and manage project files |
+| ✏️ **Code Editor** | Full-featured code editing with syntax highlighting |
+| 🤖 **Multi-Provider** | OpenAI, Anthropic Claude, 75+ LLM providers |
+| 🔄 **Session Management** | Create, fork, switch between sessions |
+| 📡 **Auto-Reconnection** | Maintains connection stability |
+| 🎨 **Material Design 3** | Beautiful dark theme with gradient accents |
+| 📱 **4-Tab Navigation** | Chat, Terminal, Files, Editor |
+
+### 🚀 Quick Start
+
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/mulkymalikuldhrs/opencode-android.git
-cd opencode-android
 
 # Open in Android Studio
-# Sync Gradle
-# Build & Run
+# Sync Gradle → Build → Run
+
+# Or build APK
+./build.sh
 ```
 
-### First Run
-
-1. **Launch App**
-2. **Connect to OpenCode Server**
-   - Enter server URL: `http://<your-ip>:4096`
-   - Enter password (if configured)
-3. **Start Coding!**
-   - Create a session
-   - Chat with AI
-   - Execute commands
-   - Browse files
-   - Edit code
-
----
-
-## 📚 API Documentation
-
-### Core Endpoints
-
-#### Global
-```
-GET  /global/health
-Response: { healthy: true, version: "1.0.193" }
-
-GET  /global/event
-Returns: SSE event stream (real-time updates)
-```
-
-#### Sessions
-```
-GET  /session
-List all sessions
-
-POST  /session
-Body: { title?: string, parentID?: string }
-Response: { id, title, createdAt, updatedAt, status, ... }
-
-GET  /session/:id
-Get session details
-
-POST  /session/:id/message
-Body: { messageID?, model?, agent?, system?, parts: [...] }
-Response: { info: Message, parts: [...] }
-
-POST  /session/:id/shell
-Body: { agent?, model?, command: string }
-Response: { info: Message, parts: [...] }
-
-POST  /session/:id/command
-Body: { command, arguments: string[] }
-Response: { info: Message, parts: [...] }
-
-DELETE  /session/:id
-Delete session and all data
-
-POST  /session/:id/fork
-Body: { messageID? }
-Response: New session
-
-POST  /session/:id/abort
-Abort running session
-
-GET  /session/:id/diff
-Get file diffs for session
-```
-
-#### Files
-```
-GET  /file?path=<path>
-List files and directories
-Response: FileNode[]
-
-GET  /file/content?path=<path>
-Read file contents
-Response: { path, content, encoding }
-
-GET  /find?pattern=<pattern>
-Search text in files
-Response: { path, lines, lineNumber, absoluteOffset, submatches }[]
-
-GET  /find/file?query=<q>
-Find files by name
-Response: string[] (paths)
-```
-
-#### Providers
-```
-GET  /provider
-List all providers
-Response: { all: Provider[], default: { key: string }, connected: string[] }
-
-GET  /provider/auth
-Get provider authentication methods
-Response: { [providerID: string]: ProviderAuthMethod[] }
-
-POST  /provider/:id/oauth/authorize
-OAuth authorization flow
-```
-
-#### Commands
-```
-GET  /command
-List all available commands
-Response: Command[]
-```
-
-### Authentication
-
-OpenCode uses HTTP Basic Authentication:
-
-```kotlin
-// Client-side
-val client = OpenCodeClient(
-    serverUrl = "http://192.168.1.100:4096",
-    username = "opencode",
-    password = "your-password"
-)
-```
-
-### Event Types (SSE)
-
-```typescript
-type ServerEvent = 
-  | { type: "server.connected", data: {} }
-  | { type: "session.status", data: { sessionID: string, status: string } }
-  | { type: "message", data: { sessionID: string, message: Message } }
-  | { type: "command.output", data: { sessionID: string, output: string } }
-  | { type: "error", data: { error: string } }
-```
-
----
-
-## 🔄 Changelog
-
-### Version 1.0.0 (2026-01-31)
-
-#### 🎉 Initial Release
-
-**Added:**
-- ✅ Full OpenCode API client (50+ endpoints)
-- ✅ SSE event streaming for real-time updates
-- ✅ Session management (create, delete, fork, abort)
-- ✅ Chat interface with message history
-- ✅ Terminal emulator with command execution
-- ✅ File manager with browsing and search
-- ✅ Code editor with syntax highlighting
-- ✅ Multi-provider support (OpenAI, Claude, 75+ LLMs)
-- ✅ Connection wizard with health check
-- ✅ Persistent connection settings
-- ✅ Background service for session keep-alive
-- ✅ Material Design 3 dark theme
-- ✅ Bottom navigation with 4 tabs
-- ✅ Type-safe data models
-- ✅ Coroutines for async operations
-
-**Tech Stack:**
-- Kotlin (100%)
-- OkHttp for HTTP/SSE
-- AndroidX libraries
-- Material Design Components
-- Coroutines + Flow
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
+**Backend Required:** Install OpenCode server first:
 ```bash
-# Server URL
-OPENCODE_SERVER_URL=http://192.168.1.100:4096
-
-# Server Password (optional)
-OPENCODE_SERVER_PASSWORD=your-password
-```
-
-### Client Configuration
-```kotlin
-// Stored in SharedPreferences
-class Config {
-    var serverUrl: String = "http://localhost:4096"
-    var username: String = "opencode"
-    var password: String = ""
-    var autoConnect: Boolean = false
-}
+npm install -g opencode-ai
+opencode serve --port 4096
 ```
 
 ---
 
-## 🤝 Credits
+## 🇮🇩 Bahasa Indonesia
 
-### 👤 Author
-**Mulky Malikul Dhaher**
+### ✨ Gambaran Umum
 
-### 📧 Contact
-- **Email:** mulkymalikuldhrs@email.com
-- **GitHub:** [@mulkymalikuldhrs](https://github.com/mulkymalikuldhrs)
-- **Social:** [@mulkymalikuldhr](https://instagram.com/mulkymalikuldhr) (FB/IG)
+Opencode Android adalah klien Android native untuk agen coding AI OpenCode. Terhubung ke server OpenCode dan menyediakan chat real-time dengan AI, akses terminal, penelusuran file, dan editor kode — semuanya dalam tema gelap Material Design 3 yang indah. Dengan streaming SSE untuk respons AI instan dan dukungan 75+ penyedia LLM, ini adalah pendamping coding mobile paling powerful.
 
-### 🙏 Acknowledgments
+### 🎯 Fitur Utama
 
-This project is based on and inspired by:
-- [OpenCode](https://opencode.ai) - The open source AI coding agent
-- [Anomaly](https://anomaly.co) - OpenCode creators
-- Material Design - Google's design system
-- OkHttp - Square's HTTP client
-- Kotlin Programming Language - JetBrains
+| Fitur | Deskripsi |
+|-------|-----------|
+| 💬 **Chat Real-Time** | Streaming SSE untuk respons AI instan |
+| 🖥️ **Akses Terminal** | Eksekusi perintah shell di server |
+| 📁 **Manajer File** | Telusuri, baca, cari, dan kelola file proyek |
+| ✏️ **Editor Kode** | Pengeditan kode lengkap dengan penyorotan sintaks |
+| 🤖 **Multi-Provider** | OpenAI, Anthropic Claude, 75+ penyedia LLM |
+| 🔄 **Manajemen Sesi** | Buat, fork, dan alihkan antar sesi |
+
+### 🚀 Mulai Cepat
+
+```bash
+git clone https://github.com/mulkymalikuldhrs/opencode-android.git
+# Buka di Android Studio → Sync Gradle → Build → Run
+```
 
 ---
 
-## 🌐 Links
+## 🇨🇳 中文
 
-- **GitHub Repository:** https://github.com/mulkymalikuldhrs/opencode-android
-- **OpenCode Docs:** https://opencode.ai/docs
-- **OpenCode GitHub:** https://github.com/anomalyco/opencode
-- **Bug Tracker:** https://github.com/mulkymalikuldhrs/opencode-android/issues
-- **Feature Requests:** https://github.com/mulkymalikuldhrs/opencode-android/discussions
-- **Releases:** https://github.com/mulkymalikuldhrs/opencode-android/releases
+### ✨ 概述
+
+Opencode Android 是 OpenCode AI 编程代理的原生 Android 客户端。它连接到 OpenCode 服务器，提供与 AI 的实时聊天、终端访问、文件浏览和代码编辑器——全部采用精美的 Material Design 3 暗色主题。通过 SSE 流式传输实现即时 AI 响应，支持 75+ LLM 提供商。
+
+### 🎯 主要功能
+
+| 功能 | 描述 |
+|------|------|
+| 💬 **实时聊天** | SSE 流式传输实现即时 AI 响应 |
+| 🖥️ **终端访问** | 在服务器上执行 Shell 命令 |
+| 📁 **文件管理器** | 浏览、读取、搜索和管理项目文件 |
+| ✏️ **代码编辑器** | 具有语法高亮的完整代码编辑 |
+| 🤖 **多提供商** | OpenAI、Anthropic Claude、75+ LLM 提供商 |
+| 🔄 **会话管理** | 创建、分支、切换会话 |
+
+### 🚀 快速开始
+
+```bash
+git clone https://github.com/mulkymalikuldhrs/opencode-android.git
+# 在 Android Studio 中打开 → 同步 Gradle → 构建 → 运行
+```
+
 ---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| ![Kotlin](https://img.shields.io/badge/Kotlin-100%25-7F52FF?logo=kotlin&logoColor=white) | Language |
+| ![Android](https://img.shields.io/badge/Android-7.0+-3DDC84?logo=android&logoColor=white) | Platform |
+| ![OkHttp](https://img.shields.io/badge/OkHttp-4-000000?logo=square) | HTTP/SSE Client |
+| ![Material Design](https://img.shields.io/badge/Material_Design-3-757575?logo=material-design) | UI Design |
+| ![Coroutines](https://img.shields.io/badge/Coroutines-Flow-7F52FF) | Async |
 
 ## 🤝 Contributing
 
-Contributions are welcome! We encourage the community to help improve this project.
-
-1. **Fork** the repository
-2. Create a **feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. Open a **Pull Request**
-
-Please make sure to update tests as appropriate and follow the existing code style.
-
----
-
-## 📬 Contact
-
-**Mulky Malikul Dhaher** — [mulkymalikuldhaher@email.com](mailto:mulkymalikuldhaher@email.com)
-
-GitHub: [https://github.com/mulkymalikuldhrs](https://github.com/mulkymalikuldhrs)
-
----
-
-## ⚠️ Disclaimer
-
-**This project is for Education Purpose only.**
-
-All content, code, and documentation provided in this repository are intended solely for educational and research purposes. Nothing in this repository constitutes financial, investment, legal, or professional advice.
-
-**Risiko apapun tidak kita tanggung.** (We are not responsible for any risks or damages.)
-
-Use at your own risk. The authors and contributors assume no liability for any losses, damages, or consequences arising from the use of this software or information provided herein.
-
----
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## 📄 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-Copyright © Mulky Malikul Dhaher. All rights reserved.
+## 👤 Author
 
+**Mulky Malikul Dhaher**
+
+[![GitHub](https://img.shields.io/badge/GitHub-mulkymalikuldhrs-181717?style=flat&logo=github)](https://github.com/mulkymalikuldhrs)
+[![Email](https://img.shields.io/badge/Email-mulkymalikuldhaher@email.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:mulkymalikuldhaher@email.com)
+
+---
+
+## ⚠️ Disclaimer
+
+### 🇬🇧 English
+
+> **⚠️ For Education Purpose Only**
+> This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
+> **Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+
+### 🇮🇩 Bahasa Indonesia
+
+> **⚠️ Hanya untuk Tujuan Pendidikan**
+> Proyek ini disediakan secara ketat untuk tujuan pendidikan dan penelitian. Penulis dan kontributor **tidak bertanggung jawab atau berkewajiban** atas kerusakan, kerugian, atau risiko yang timbul dari penggunaan perangkat lunak ini. **Kami tidak menanggung tanggung jawab atau risiko** apa pun untuk penggunaan perangkat lunak ini.
+> **Kontak:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+
+### 🇨🇳 中文
+
+> **⚠️ 仅供教育目的**
+> 本项目严格仅供教育和研究目的提供。作者和贡献者对因使用本软件而产生的任何损害、损失或风险**不承担任何责任或义务**。**我们不承担任何责任或风险**对于本软件的使用方式。
+> **联系方式:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+
+---
+
+<div align="center">
+
+Made with ❤️ by Mulky Malikul Dhaher
+
+**For Education Purpose Only**
+
+</div>

@@ -236,3 +236,7 @@ Submit feature requests to: [https://github.com/mulkymalikuldhrs/opencode-androi
 - GitHub: [https://github.com/mulkymalikuldhrs](https://github.com/mulkymalikuldhrs)
 
 Thank you for contributing to OpenCode Android! Your efforts help make AI-powered coding accessible on Android devices everywhere.
+
+---
+
+**⚠️ For Education Purpose Only** — This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
