@@ -318,78 +318,45 @@ This project is based on and inspired by:
 - **Bug Tracker:** https://github.com/mulkymalikuldhrs/opencode-android/issues
 - **Feature Requests:** https://github.com/mulkymalikuldhrs/opencode-android/discussions
 - **Releases:** https://github.com/mulkymalikuldhrs/opencode-android/releases
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! We encourage the community to help improve this project.
+
+1. **Fork** the repository
+2. Create a **feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. Open a **Pull Request**
+
+Please make sure to update tests as appropriate and follow the existing code style.
+
+---
+
+## 📬 Contact
+
+**Mulky Malikul Dhaher** — [mulkymalikuldhaher@email.com](mailto:mulkymalikuldhaher@email.com)
+
+GitHub: [https://github.com/mulkymalikuldhrs](https://github.com/mulkymalikuldhrs)
+
+---
+
+## ⚠️ Disclaimer
+
+**This project is for Education Purpose only.**
+
+All content, code, and documentation provided in this repository are intended solely for educational and research purposes. Nothing in this repository constitutes financial, investment, legal, or professional advice.
+
+**Risiko apapun tidak kita tanggung.** (We are not responsible for any risks or damages.)
+
+Use at your own risk. The authors and contributors assume no liability for any losses, damages, or consequences arising from the use of this software or information provided herein.
 
 ---
 
 ## 📄 License
 
-```
-MIT License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2026 Mulky Malikul Dhaher
+Copyright © Mulky Malikul Dhaher. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-## 📱 Source Code
-```bash
-git clone https://github.com/mulkymalikuldhrs/opencode-android.git
-```
-
----
-
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=mulkymalikuldhrs/opencode-android&type=Date)](https://star-history.com/#mulkymalikuldhrs/opencode-android&Date)
-
----
-
-## 📊 Project Statistics
-
-- **Total Files:** 50+
-- **Kotlin Files:** 12
-- **XML Layouts:** 15
-- **API Endpoints:** 50+
-- **Dependencies:** 8
-- **Lines of Code:** 8,000+
-- **Contributors:** 1
-- **Forks:** 0
-- **Stars:** [![GitHub Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/opencode-android?style=social)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
-
----
-
-<div align="center">
-
-## ⭐ Star This Project!
-
-If you find OpenCode Android useful, please give it a star on GitHub!
-
-[![Stargazers repo mulkymalikuldhrs/opencode-android](https://reporoster.star-history.com/star/mulkymalikuldhrs/opencode-android)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
-
-Made with ❤️ by [Mulky Malikul Dhaher](https://github.com/mulkymalikuldhrs) <!-- [Portfolio](https://portomulky.vercel.app) -->
-
----
-
-[![Built with Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-purple)](https://kotlinlang.org/)
-[![Android API](https://img.shields.io/badge/API-24%2B34-blue)](https://developer.android.com/)
-[![Target SDK](https://img.shields.io/badge/Target-34%2B34-green)](https://developer.android.com/)
-
-</div>
