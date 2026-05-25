@@ -16,8 +16,8 @@ class OpenCodeApi {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
     
-    private val apiKey = "sk-AmcUJKfcndoXVrUcTqvo3swHFFODOosMQcuQRDqCyeZ5HyU9Wt3PqQUVLYYEm7N3"
-    private val baseUrl = "https://api.opencode.ai/v1"
+    private val apiKey: String = System.getenv("OPENCODE_API_KEY") ?: com.opencode.mobile.BuildConfig.OPENCODE_API_KEY
+    private val baseUrl: String = System.getenv("OPENCODE_BASE_URL") ?: "https://api.opencode.ai/v1"
     
     suspend fun sendMessage(content: String): String {
         return try {
@@ -33,7 +33,7 @@ class OpenCodeApi {
             generateLocalResponse(content)
             
         } catch (e: Exception) {
-            "Network error: ${e.message}\n\nNote: Full OpenCode functionality requires backend server. This is a demo client."
+            "Network error: ${e.message}\n\nNote: Full OpenCode functionality requires backend server. Please configure OPENCODE_API_KEY."
         }
     }
     
@@ -112,21 +112,13 @@ class OpenCodeApi {
     }
     
     private fun generateLocalResponse(content: String): String {
-        // Smart local responses when API unavailable
-        val lower = content.toLowerCase()
-        
-        return when {
-            lower.contains("hello") || lower.contains("hi") -> 
-                "Hello! 👋 I'm OpenCode Mobile. I'm currently running in offline mode because the backend server is not reachable.\n\nTo get full AI capabilities, please:\n1. Check your internet connection\n2. Verify API key configuration\n3. Ensure OpenCode backend is accessible"
-            
-            lower.contains("code") || lower.contains("write") ->
-                "I'd love to write code for you! Here's a simple example:\n\n```kotlin\n// Hello World in Kotlin\nfun main() {\n    println(\"Hello, OpenCode!\")\n}\n```\n\n**Note:** I'm currently operating in demo mode. For full code generation with context awareness, project analysis, and execution, the OpenCode backend connection is required."
-            
-            lower.contains("terminal") || lower.contains("command") ->
-                "The Terminal feature requires full OpenCode backend.\n\nWhat you can do now:\n- Browse the file manager\n- Edit code in the editor\n- Use chat for code snippets\n\nFor command execution, please connect to OpenCode server."
-            
-            else -> "I understand you want to: \"$content\"\n\n**Status:** OpenCode Mobile is running in demo/offline mode.\n\n**Capabilities limited:**\n❌ Real AI responses\n❌ Terminal command execution\n❌ File system operations\n❌ Code execution\n\n**Working features:**\n✅ Chat interface\n✅ Code display with syntax highlighting\n✅ File browser (read-only)\n✅ Code editor\n\nTo unlock full OpenCode power, connect to backend server with valid API key."
-        }
+        // Offline mode - no API available
+        return "OpenCode Mobile is currently offline. The backend server is not reachable.\n\n" +
+            "To get full AI capabilities, please:\n" +
+            "1. Check your internet connection\n" +
+            "2. Verify API key configuration (set OPENCODE_API_KEY)\n" +
+            "3. Ensure OpenCode backend is accessible\n\n" +
+            "Your message: \"$content\""
     }
     
     suspend fun executeCommand(command: String): String {
