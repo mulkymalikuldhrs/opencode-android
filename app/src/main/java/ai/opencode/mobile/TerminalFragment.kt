@@ -43,7 +43,7 @@ class TerminalFragment : Fragment() {
         executeButton.setOnClickListener { executeCommand() }
         
         // Initial message
-        outputText.text = "OpenCode Terminal v1.0\n" +
+        outputText.text = "OpenCode Terminal v2.0\n" +
                 "Type commands to execute. Use 'help' for available commands.\n\n" +
                 "$ "
     }
@@ -119,22 +119,34 @@ class TerminalFragment : Fragment() {
     }
     
     private fun listFiles() {
+        // Use app-private directory instead of Runtime.exec
         try {
-            val process = Runtime.getRuntime().exec("ls -la")
-            val reader = BufferedReader(InputStreamReader(process.inputStream))
-            var line: String?
-            while (reader.readLine().also { line = it } != null) {
-                appendOutput(line + "\n")
+            val dir = context?.getFilesDir()
+            if (dir != null && dir.exists()) {
+                val files = dir.listFiles()
+                if (files != null && files.isNotEmpty()) {
+                    for (file in files) {
+                        if (file.isDirectory) {
+                            appendOutput("${file.name}/\n")
+                        } else {
+                            appendOutput("${file.name} (${file.length()} bytes)\n")
+                        }
+                    }
+                } else {
+                    appendOutput("(empty directory)\n")
+                }
+            } else {
+                appendOutput("(no files directory)\n")
             }
+        } catch (e: SecurityException) {
+            appendOutput("Permission denied\n")
         } catch (e: Exception) {
-            appendOutput("files/\n")
-            appendOutput("projects/\n")
-            appendOutput("downloads/\n")
+            appendOutput("Error listing files: ${e.message}\n")
         }
     }
     
     private fun showCurrentDirectory() {
-        appendOutput("/data/data/ai.opencode.mobile/files\n")
+        appendOutput("${context?.getFilesDir()?.absolutePath ?: "/data/data/ai.opencode.mobile/files"}\n")
     }
     
     private fun echo(command: String) {

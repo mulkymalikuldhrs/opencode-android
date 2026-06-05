@@ -2,6 +2,36 @@
 
 All notable changes to Opencode Android will be documented in this file.
 
+## [2.0.0] - 2026-03-04
+
+### Security
+
+- **Encrypted credential storage**: Replaced plain `SharedPreferences` with `EncryptedSharedPreferences` (AndroidX Security) — server passwords and API keys are now encrypted at rest
+- **Network security config**: Added `network_security_config.xml` — blocks all cleartext traffic except localhost (development); `usesCleartextTraffic` set to `false`
+- **Removed `MANAGE_EXTERNAL_STORAGE` permission**: Overly broad storage access removed
+- **Disabled `allowBackup`**: Prevents data extraction via `adb backup`
+- **API key from BuildConfig**: `OPENCODE_API_KEY` now loaded from `gradle.properties` or environment variable — never hardcoded
+- **Replaced `Runtime.exec("ls -la")`**: Terminal `ls` command now uses `context.filesDir.listFiles()` instead of shell execution (prevents command injection)
+- **ProGuard rules**: Replaced overly broad `-keep public class * { public protected *; }` with targeted rules for OkHttp, SSE, WebSocket, coroutines, and app models; added log stripping for release builds
+- **Resource shrinking**: Enabled `shrinkResources true` in release build
+- **Added `push-github-token.sh` to `.gitignore`**: Script containing token patterns no longer tracked
+- **Added `.env`, `.env.local`, `.env.production`, `.env.*.local`, `.replit` to `.gitignore`**
+
+### Added
+
+- `SecureStorage.kt` — Encrypted storage singleton for server URL, password, and API key with automatic migration from plain `SharedPreferences`
+- `network_security_config.xml` — HTTPS-only with localhost exception
+- `buildConfig` feature flag enabled in Gradle
+- `buildConfigField` for `OPENCODE_API_KEY` in both debug and release build types
+- `androidx.security:security-crypto` dependency
+
+### Changed
+
+- Version bumped from `1.0.0` to `2.0.0` (versionCode 1 → 2)
+- `ConnectionActivity` now uses `SecureStorage` instead of plain `SharedPreferences`; includes one-time migration logic and URL format validation
+- `ChatFragment` now reads credentials from `SecureStorage` instead of plain `SharedPreferences`
+- README updated with API key configuration instructions and security feature badges
+
 ## [1.0.0] - 2026-03-04 (Maintenance Release)
 
 ### Added

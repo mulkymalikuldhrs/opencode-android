@@ -36,4 +36,10 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Clear sensitive data from memory
+        bottomNavigation.setOnItemSelectedListener(null)
+    }
 }

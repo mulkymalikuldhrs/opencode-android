@@ -6,7 +6,7 @@
 
 <br/>
 
-[![Version](https://img.shields.io/badge/version-1.0.0-8B5CF6?style=for-the-badge&logo=semver)](https://github.com/mulkymalikuldhrs/opencode-android)
+[![Version](https://img.shields.io/badge/version-2.0.0-8B5CF6?style=for-the-badge&logo=semver)](https://github.com/mulkymalikuldhrs/opencode-android)
 [![Kotlin](https://img.shields.io/badge/Kotlin-100%25-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-7.0+-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
@@ -61,7 +61,9 @@ Opencode Android is a native Android client for the OpenCode AI coding agent. It
 | ✏️ **Code Editor** | Full-featured code editing with syntax highlighting |
 | 🤖 **Multi-Provider** | OpenAI, Anthropic Claude, 75+ LLM providers |
 | 🔄 **Session Management** | Create, fork, switch between sessions |
-| 📡 **Auto-Reconnection** | Maintains connection stability |
+| 🛡️ **Secure Storage** | Encrypted credentials at rest using AndroidX Security |
+| 🔒 **Network Security** | HTTPS-only with network security config |
+| 🔐 **No Hardcoded Keys** | API keys from BuildConfig (gradle.properties/env) |
 | 🎨 **Material Design 3** | Beautiful dark theme with gradient accents |
 | 📱 **4-Tab Navigation** | Chat, Terminal, Files, Editor |
 
@@ -70,6 +72,10 @@ Opencode Android is a native Android client for the OpenCode AI coding agent. It
 ```bash
 # Clone the repository
 git clone https://github.com/mulkymalikuldhrs/opencode-android.git
+
+# Set your API key (optional — for direct OpenAI/Anthropic calls)
+# Add to ~/.gradle/gradle.properties:
+# OPENCODE_API_KEY=your_key_here
 
 # Open in Android Studio
 # Sync Gradle → Build → Run

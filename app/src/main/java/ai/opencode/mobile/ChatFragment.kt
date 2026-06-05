@@ -3,6 +3,7 @@ package ai.opencode.mobile
 import ai.opencode.mobile.api.OpenCodeClient
 import ai.opencode.mobile.manager.SessionManager
 import ai.opencode.mobile.model.*
+import ai.opencode.mobile.security.SecureStorage
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -62,11 +63,9 @@ class ChatFragment : Fragment() {
             }
         }
         
-        // Initialize client if connected
-        val serverUrl = context?.getSharedPreferences("opencode", android.content.Context.MODE_PRIVATE)
-            ?.getString("server_url", null)
-        val password = context?.getSharedPreferences("opencode", android.content.Context.MODE_PRIVATE)
-            ?.getString("server_password", "") ?: ""
+        // Initialize client if connected (use encrypted storage)
+        val serverUrl = context?.let { SecureStorage.getServerUrl(it) }
+        val password = context?.let { SecureStorage.getServerPassword(it) } ?: ""
         
         if (serverUrl != null) {
             client = OpenCodeClient(serverUrl, password = password)
@@ -108,10 +107,8 @@ class ChatFragment : Fragment() {
     }
     
     private fun connectToEventStream() {
-        val serverUrl = context?.getSharedPreferences("opencode", android.content.Context.MODE_PRIVATE)
-            ?.getString("server_url", null) ?: return
-        val password = context?.getSharedPreferences("opencode", android.content.Context.MODE_PRIVATE)
-            ?.getString("server_password", "") ?: ""
+        val serverUrl = context?.let { SecureStorage.getServerUrl(it) } ?: return
+        val password = context?.let { SecureStorage.getServerPassword(it) } ?: ""
         
         sessionManager.connectToEventStream(
             serverUrl = serverUrl,

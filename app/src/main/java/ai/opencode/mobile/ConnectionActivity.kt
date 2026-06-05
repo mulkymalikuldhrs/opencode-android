@@ -1,6 +1,7 @@
 package ai.opencode.mobile
 
 import ai.opencode.mobile.api.OpenCodeClient
+import ai.opencode.mobile.security.SecureStorage
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -21,9 +22,11 @@ class ConnectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
+        // Migrate from plain SharedPreferences to encrypted storage (one-time)
+        SecureStorage.migrateFromPlainPrefs(this)
+
         // Check if already connected
-        val prefs = getSharedPreferences("opencode", MODE_PRIVATE)
-        val savedUrl = prefs.getString("server_url", null)
+        val savedUrl = SecureStorage.getServerUrl(this)
         
         if (savedUrl != null) {
             // Skip to main activity
@@ -50,6 +53,12 @@ class ConnectionActivity : AppCompatActivity() {
             Toast.makeText(this, "Please enter server URL", Toast.LENGTH_SHORT).show()
             return
         }
+
+        // Validate URL format
+        if (!serverUrl.startsWith("https://") && !serverUrl.startsWith("http://")) {
+            Toast.makeText(this, "URL must start with http:// or https://", Toast.LENGTH_SHORT).show()
+            return
+        }
         
         progressBar.visibility = ProgressBar.VISIBLE
         connectButton.isEnabled = false
@@ -60,12 +69,9 @@ class ConnectionActivity : AppCompatActivity() {
                 val health = client.checkHealth()
                 
                 if (health.healthy) {
-                    // Save connection details
-                    getSharedPreferences("opencode", MODE_PRIVATE)
-                        .edit()
-                        .putString("server_url", serverUrl)
-                        .putString("server_password", password)
-                        .apply()
+                    // Save connection details to encrypted storage
+                    SecureStorage.saveServerUrl(this@ConnectionActivity, serverUrl)
+                    SecureStorage.saveServerPassword(this@ConnectionActivity, password)
                     
                     Toast.makeText(
                         this@ConnectionActivity, 
