@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Opencode Android Logo](https://img.shields.io/badge/Opencode-Android-v1.0.0-purple)](https://github.com/mulkymalikuldhrs/opencode-android/releases)
+[![Opencode Android Logo](https://img.shields.io/badge/Opencode-Android-v2.0.0-purple)](https://github.com/mulkymalikuldhrs/opencode-android/releases)
 [![Lisensi: MIT](https://img.shields.io/badge/Lisensi-MIT-green.svg)](LICENSE)
 [![Platform: Android](https://img.shields.io/badge/Platform-Android-blue.svg)]()
 [![GitHub Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/opencode-android?style=social)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
@@ -38,16 +38,6 @@
 - **Integrasi Git** - Operasi VCS melalui OpenCode
 - **Dukungan LSP** - Language Server Protocol untuk kecerdasan kode
 - **Protokol MCP** - Model Context Protocol untuk integrasi lanjutan
-
----
-
-## 📸 Tangkapan Layar
-
-| Antarmuka Chat | Terminal | Manajer File | Editor Kode |
-|:-----------:|:----------:|:------------:|:------------:|
-| ![Chat](docs/screenshots/chat.png) | ![Terminal](docs/screenshots/terminal.png) | ![Files](docs/screenshots/files.png) | ![Editor](docs/screenshots/editor.png) |
-
-*Implementasi UI lengkap dengan konektivitas backend OpenCode nyata*
 
 ---
 

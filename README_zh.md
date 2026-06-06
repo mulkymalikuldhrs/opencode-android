@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Opencode Android Logo](https://img.shields.io/badge/Opencode-Android-v1.0.0-purple)](https://github.com/mulkymalikuldhrs/opencode-android/releases)
+[![Opencode Android Logo](https://img.shields.io/badge/Opencode-Android-v2.0.0-purple)](https://github.com/mulkymalikuldhrs/opencode-android/releases)
 [![许可证: MIT](https://img.shields.io/badge/许可证-MIT-green.svg)](LICENSE)
 [![平台: Android](https://img.shields.io/badge/平台-Android-blue.svg)]()
 [![GitHub Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/opencode-android?style=social)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
@@ -38,16 +38,6 @@
 - **Git 集成** - 通过 OpenCode 进行版本控制操作
 - **LSP 支持** - 语言服务器协议，提供代码智能
 - **MCP 协议** - 模型上下文协议，用于高级集成
-
----
-
-## 📸 应用截图
-
-| 聊天界面 | 终端 | 文件管理器 | 代码编辑器 |
-|:-----------:|:----------:|:------------:|:------------:|
-| ![Chat](docs/screenshots/chat.png) | ![Terminal](docs/screenshots/terminal.png) | ![Files](docs/screenshots/files.png) | ![Editor](docs/screenshots/editor.png) |
-
-*完整的 UI 实现，具有真实的 OpenCode 后端连接*
 
 ---
 

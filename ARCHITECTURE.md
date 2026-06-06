@@ -373,7 +373,7 @@ Connection credentials are stored in Android's `SharedPreferences`. For enhanced
 
 ### Network Security
 
-- **Cleartext Traffic** — Enabled (`android:usesCleartextTraffic="true"`) to support local network connections to OpenCode servers running on the same device or LAN. For production use with remote servers, HTTPS is recommended.
+- **Cleartext Traffic** — Disabled (`android:usesCleartextTraffic="false"`) by default. A `network_security_config.xml` allows cleartext only to `localhost`/`127.0.0.1` for development. For production use with remote servers, HTTPS is enforced.
 - **SSL/TLS** — OkHttp supports TLS out of the box. When connecting to HTTPS endpoints, standard certificate validation applies.
 - **No Hardcoded Secrets** — The app contains no API keys or server credentials. All connection parameters are user-provided.
 
@@ -383,7 +383,6 @@ The app requests the following permissions:
 - `INTERNET` — Network communication with OpenCode server
 - `ACCESS_NETWORK_STATE` — Check network availability
 - `WRITE_EXTERNAL_STORAGE` / `READ_EXTERNAL_STORAGE` — File access (legacy, SDK ≤ 32)
-- `MANAGE_EXTERNAL_STORAGE` — Full file access (SDK ≥ 33)
 - `FOREGROUND_SERVICE` — Background service for keep-alive
 - `POST_NOTIFICATIONS` — Foreground service notification (SDK ≥ 33)
 - `WAKE_LOCK` — Prevent CPU sleep during long operations
@@ -402,8 +401,8 @@ The project uses a standard Android Gradle build configuration:
 | `minSdk` | 24 |
 | `targetSdk` | 34 |
 | `applicationId` | `ai.opencode.mobile` |
-| `versionCode` | 1 |
-| `versionName` | `1.0.0` |
+| `versionCode` | 2 |
+| `versionName` | `2.0.0` |
 
 ### Build Variants
 

@@ -16,7 +16,7 @@ class OpenCodeApi {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
     
-    private val apiKey: String = System.getenv("OPENCODE_API_KEY") ?: com.opencode.mobile.BuildConfig.OPENCODE_API_KEY
+    private val apiKey: String = System.getenv("OPENCODE_API_KEY") ?: ai.opencode.mobile.BuildConfig.OPENCODE_API_KEY
     private val baseUrl: String = System.getenv("OPENCODE_BASE_URL") ?: "https://api.opencode.ai/v1"
     
     suspend fun sendMessage(content: String): String {

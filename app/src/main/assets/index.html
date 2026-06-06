@@ -340,7 +340,7 @@
     <script>
         let isConnected = false;
         let messageHistory = [];
-        let apiKey = 'sk-AmcUJKfcndoXVrUcTqvo3swHFFODOosMQcuQRDqCyeZ5HyU9Wt3PqQUVLYYEm7N3';
+        let apiKey = ''; // API key must be provided by the Android host via SecureStorage
         
         function startChat() {
             document.getElementById('welcomeScreen').style.display = 'none';
@@ -460,7 +460,7 @@
                 return "Great! Let's create something awesome. 🚀\n\nWhat type of project do you want to build?\n\n• Mobile app\n• Web application\n• API/Backend\n• Script/Automation\n• Something else?\n\nTell me your idea and I'll help you build it!";
             }
             else {
-                return `I received your message: "${input}"\n\nI'm processing this request and will help you accomplish it. In a full implementation, I would:\n\n1. Parse your intent using NLP\n2. Execute necessary commands via the backend\n3. Provide results and suggestions\n\n**Current Status:** Demo mode - backend integration required for full functionality.\n\nYour API key is configured: \`${apiKey.substring(0, 15)}...\``;
+                return `I received your message: "${input}"\n\nI'm processing this request and will help you accomplish it. In a full implementation, I would:\n\n1. Parse your intent using NLP\n2. Execute necessary commands via the backend\n3. Provide results and suggestions\n\n**Current Status:** Demo mode - connect to an OpenCode server for full functionality.`;
             }
         }
         
