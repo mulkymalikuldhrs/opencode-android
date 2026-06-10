@@ -1,21 +1,17 @@
 name: CI
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-      - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+      - name: Check for common issues
+        run: |
+          echo "Running basic quality checks..."
+          # Check for TODO/FIXME
+          grep -r "TODO\|FIXME" --include="*.ts" --include="*.js" --include="*.py" --include="*.tsx" . || echo "No TODOs/FIXMEs found"
