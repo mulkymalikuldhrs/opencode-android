@@ -1,0 +1,53 @@
+name: Good First Issue
+description: Suggest a beginner-friendly issue for new contributors
+title: "[GOOD FIRST ISSUE] "
+labels: ["good first issue", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a beginner-friendly task! These issues help
+        new contributors get started with the project. Please describe the
+        task clearly so a first-timer can pick it up.
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Describe the task or improvement in simple terms.
+      placeholder: "This task involves adding/updating..."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Suggested Approach
+      description: Provide guidance on how a contributor could tackle this.
+      placeholder: |
+        1. Look at file X
+        2. Modify function Y
+        3. Add test for Z
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Relevant Files / Areas
+      description: Which files or parts of the codebase should the contributor look at?
+      placeholder: "src/components/..., tests/..., docs/..."
+    validations:
+      required: false
+  - type: textarea
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Any skills, tools, or knowledge needed before starting?
+      placeholder: "Basic knowledge of TypeScript, React, etc."
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other helpful information, references, or resources.
+    validations:
+      required: false
