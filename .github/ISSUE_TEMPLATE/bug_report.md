@@ -1,40 +1,34 @@
 ---
 name: Bug Report
-about: Report a bug or unexpected behavior
-title: '[BUG] '
-labels: bug, triage
+about: Report a bug to help us improve
+title: 'bug: '
+labels: bug
 assignees: ''
 ---
 
-## 🐛 Bug Description
+## Bug Description
+A clear description of what the bug is.
 
-A clear and concise description of what the bug is.
-
-## 📋 Steps to Reproduce
-
+## Steps to Reproduce
 1. Go to '...'
 2. Click on '...'
-3. See error
+3. Scroll down to '...'
+4. See error
 
-## 🎯 Expected Behavior
+## Expected Behavior
+What you expected to happen.
 
-A clear and concise description of what you expected to happen.
+## Actual Behavior
+What actually happened.
 
-## 📸 Screenshots
+## Environment
+- OS: [e.g., macOS 14, Ubuntu 22.04, Windows 11]
+- Node.js/Python version: [e.g., 20.11.0 / 3.12]
+- Browser: [e.g., Chrome 121]
+- Project version: [e.g., v3.0.0]
 
-If applicable, add screenshots to help explain your problem.
+## Screenshots / Logs
+If applicable, add screenshots or error logs.
 
-## 💻 Environment
-
-- Device: [e.g. Pixel 7, Samsung S24]
-- Android Version: [e.g. 14]
-- App Version: [e.g. 1.0.0]
-- OpenCode Server Version: [e.g. 1.0.193]
-
-## 📝 Additional Context
-
-Add any other context about the problem here.
-
----
-
-**⚠️ For Education Purpose Only** — This project is provided strictly for educational and research purposes. The authors assume no responsibility or liability for any damages, losses, or risks arising from the use of this software.
+## Additional Context
+Any other context about the problem.
