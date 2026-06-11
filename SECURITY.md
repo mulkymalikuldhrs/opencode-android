@@ -1,42 +1,31 @@
 # Security Policy
 
-## 🔒 Security
+## Reporting a Vulnerability
 
-We take the security of Opencode Android seriously. If you discover a security vulnerability, please follow the responsible disclosure process outlined below.
+We take security seriously. If you discover a vulnerability in this project, please report it responsibly.
 
-**⚠️ For Education Purpose Only** — This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
+### How to Report
 
-## 🛡️ Supported Versions
+1. **Do not** create a public GitHub issue for the vulnerability
+2. Email us at mulkymalikuldhr@agentmail.to with details
+3. Include steps to reproduce, affected versions, and potential impact
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+### What to Include
 
-## 📣 Reporting a Vulnerability
+- Description of the vulnerability
+- Steps to reproduce
+- Affected versions
+- Potential impact
+- Suggested fix (if available)
 
-If you discover a security vulnerability within Opencode Android, please report it by:
+### Response Time
 
-1. **Email:** Send a detailed report to **mulkymalikuldhaher@email.com**
-2. **Do NOT** create a public GitHub issue for security vulnerabilities
-3. Include the following in your report:
-   - Type of vulnerability
-   - Full path of the affected file(s)
-   - Steps to reproduce
-   - Potential impact
-   - Any possible mitigation
+We aim to acknowledge reports within 48 hours and provide a fix within 7 days for critical issues.
 
-We will acknowledge your report within 48 hours and provide a detailed response within 7 days.
+### Disclosure Policy
 
-## 🔐 Security Best Practices
+- We practice responsible disclosure
+- We will credit researchers who report vulnerabilities (unless they prefer to remain anonymous)
+- We ask that you give us reasonable time to address the issue before public disclosure
 
-- Server passwords are stored securely using Android Keystore
-- All network communication uses HTTPS
-- Session tokens are managed securely in SharedPreferences
-- API keys are never hardcoded in the application
-
-## ⚠️ Disclaimer
-
-This software is for educational and research purposes only. It should not be used in production environments without proper security audits. The authors assume no liability for any security issues or losses arising from the use of this software.
-
-**Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+Thank you for helping keep this project secure!
