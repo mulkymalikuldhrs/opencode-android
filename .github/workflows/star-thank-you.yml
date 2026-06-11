@@ -1,0 +1,14 @@
+name: Thank Stargazer
+on:
+  watch:
+    types: [started]
+
+jobs:
+  thank:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const stargazer = context.payload.sender.login;
+            console.log(`New stargazer: ${stargazer}! Consider inviting them to contribute.`);
