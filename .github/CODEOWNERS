@@ -1,0 +1,22 @@
+# CODEOWNERS - Code review assignments
+# This file triggers GitHub's code review bot and improves repo discoverability
+
+# Global owner
+* @mulkymalikuldhrs
+
+# Source code
+*.ts @mulkymalikuldhrs
+*.tsx @mulkymalikuldhrs
+*.js @mulkymalikuldhrs
+*.py @mulkymalikuldhrs
+*.kt @mulkymalikuldhrs
+*.dart @mulkymalikuldhrs
+
+# Documentation
+*.md @mulkymalikuldhrs
+docs/ @mulkymalikuldhrs
+
+# Configuration
+.github/ @mulkymalikuldhrs
+package.json @mulkymalikuldhrs
+tsconfig.json @mulkymalikuldhrs
