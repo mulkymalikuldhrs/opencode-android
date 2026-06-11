@@ -106,6 +106,173 @@ Adaptive UI that works across phones, foldables, and tablets. Split-screen suppo
 
 ---
 
+## Architecture & Data Flow Visualizations
+
+### Thin Client Architecture — Android App to OpenCode Server
+
+```mermaid
+graph TB
+    subgraph Android["Android Device — Thin Client"]
+        Chat_UI["AI Chat UI<br/>SSE Streaming"]
+        Term_UI["Terminal UI<br/>WebSocket Shell"]
+        Editor_UI["Code Editor<br/>Syntax Highlight"]
+        File_UI["File Manager<br/>Remote Tree"]
+        Session_UI["Session Manager<br/>History & Context"]
+    end
+
+    subgraph Transport["Network Transport"]
+        SSE_Client["SSE Client<br/>OkHttp EventSource"]
+        WS_Client["WebSocket Client<br/>OkHttp WS"]
+        HTTP_Client["HTTP Client<br/>REST API Calls"]
+        TLS["TLS Layer<br/>HTTPS / WSS"]
+    end
+
+    subgraph Server["OpenCode Server — Heavy Lifting"]
+        Agent["Agent Engine<br/>AI Coding Logic"]
+        LLM["LLM Providers<br/>75+ APIs"]
+        Shell["Shell Executor<br/>Terminal Commands"]
+        FS["Filesystem Access<br/>Project Files"]
+        Session_Svc["Session Service<br/>Conversation State"]
+    end
+
+    Chat_UI --> SSE_Client
+    Term_UI --> WS_Client
+    Editor_UI --> HTTP_Client
+    File_UI --> HTTP_Client
+    Session_UI --> HTTP_Client
+    SSE_Client --> TLS
+    WS_Client --> TLS
+    HTTP_Client --> TLS
+    TLS -->|"HTTPS/SSE"| Agent
+    TLS -->|"WSS"| Shell
+    TLS -->|"HTTPS"| FS
+    TLS -->|"HTTPS"| Session_Svc
+    Agent --> LLM
+
+    style Android fill:#0d2137,stroke:#8b5cf6,color:#e9d5ff
+    style Transport fill:#1a1a2e,stroke:#3b82f6,color:#dbeafe
+    style Server fill:#064e3b,stroke:#10b981,color:#d1fae5
+```
+
+### SSE Chat Flow — Real-Time AI Conversation
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App as Android App
+    participant SSE as SSE Client
+    participant Server as OpenCode Server
+    participant LLM as LLM Provider
+
+    User->>App: Type message
+    App->>SSE: POST /chat (SSE request)
+    SSE->>Server: HTTP request with message
+    Server->>LLM: Forward to LLM API
+    LLM-->>Server: Stream tokens back
+    Server-->>SSE: SSE event: token chunk
+    SSE-->>App: onEvent: partial text
+    App-->>User: Display token (streaming)
+    Server-->>SSE: SSE event: token chunk
+    SSE-->>App: onEvent: partial text
+    App-->>User: Append token (streaming)
+    Server-->>SSE: SSE event: [DONE]
+    SSE-->>App: onEvent: complete
+    App-->>User: Final response rendered
+```
+
+### Terminal WebSocket Flow — Remote Shell Access
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant TermUI as Terminal UI
+    participant WS as WebSocket Client
+    participant Server as OpenCode Server
+    participant Shell as Server Shell
+
+    User->>TermUI: Type command
+    TermUI->>WS: WS send: command payload
+    WS->>Server: WebSocket frame
+    Server->>Shell: Execute command
+    Shell-->>Server: stdout output
+    Server-->>WS: WS frame: output chunk
+    WS-->>TermUI: onMessage: output text
+    TermUI-->>User: Display output
+    Shell-->>Server: stderr output
+    Server-->>WS: WS frame: error chunk
+    WS-->>TermUI: onMessage: error text
+    TermUI-->>User: Display error
+    Shell-->>Server: Exit code
+    Server-->>WS: WS frame: exit signal
+    WS-->>TermUI: onMessage: prompt ready
+    TermUI-->>User: New prompt line
+```
+
+### Android App Architecture — Activities, Fragments & Security
+
+```mermaid
+graph TB
+    subgraph UI_Layer["UI Layer — Jetpack Compose + Material 3"]
+        Main_Act["MainActivity<br/>Navigation Host"]
+        Chat_Screen["ChatScreen<br/>SSE Message List"]
+        Term_Screen["TerminalScreen<br/>Terminal Emulator"]
+        Editor_Screen["EditorScreen<br/>Code Editor"]
+        Files_Screen["FilesScreen<br/>File Tree Browser"]
+        Settings_Screen["SettingsScreen<br/>Server Config"]
+    end
+
+    subgraph VM_Layer["ViewModel Layer — MVVM"]
+        Chat_VM["ChatViewModel<br/>SSE State Management"]
+        Term_VM["TerminalViewModel<br/>WS Session Mgmt"]
+        Editor_VM["EditorViewModel<br/>File Buffer State"]
+        Files_VM["FilesViewModel<br/>Tree Navigation"]
+        Settings_VM["SettingsViewModel<br/>Connection Profiles"]
+    end
+
+    subgraph Data_Layer["Data Layer"]
+        SSE_Repo["SSE Repository<br/>OkHttp EventSource"]
+        WS_Repo["WebSocket Repository<br/>OkHttp WS"]
+        HTTP_Repo["HTTP Repository<br/>Retrofit / OkHttp"]
+        Local_DB["Local Database<br/>Room / DataStore"]
+    end
+
+    subgraph Security["Security Layer"]
+        Cert_Pin["Certificate Pinning<br/>OkHttp CertPinner"]
+        Token_Mgr["Token Manager<br/>Auth Header Injection"]
+        Net_Sec["Network Security Config<br/>Cleartext Rules"]
+        Encrypted_Pref["Encrypted Preferences<br/>Jetpack Security"]
+    end
+
+    Main_Act --> Chat_Screen
+    Main_Act --> Term_Screen
+    Main_Act --> Editor_Screen
+    Main_Act --> Files_Screen
+    Main_Act --> Settings_Screen
+    Chat_Screen --> Chat_VM
+    Term_Screen --> Term_VM
+    Editor_Screen --> Editor_VM
+    Files_Screen --> Files_VM
+    Settings_Screen --> Settings_VM
+    Chat_VM --> SSE_Repo
+    Term_VM --> WS_Repo
+    Editor_VM --> HTTP_Repo
+    Files_VM --> HTTP_Repo
+    Settings_VM --> Local_DB
+    SSE_Repo --> Cert_Pin
+    WS_Repo --> Token_Mgr
+    HTTP_Repo --> Net_Sec
+    Local_DB --> Encrypted_Pref
+
+    style UI_Layer fill:#0d2137,stroke:#8b5cf6,color:#e9d5ff
+    style VM_Layer fill:#1a1a2e,stroke:#3b82f6,color:#dbeafe
+    style Data_Layer fill:#064e3b,stroke:#10b981,color:#d1fae5
+    style Security fill:#4a1d0a,stroke:#f59e0b,color:#fef3c7
+```
+
+> **Maturity Note**: Opencode Android is in active development. The SSE chat flow and server connection management are the most polished features. Terminal WebSocket integration is functional. The code editor and file manager support basic operations — advanced features (multi-cursor, project-wide search) are planned. Security hardening (certificate pinning, encrypted preferences) is partially implemented and will be strengthened in future releases.
+
+---
+
 ## Honest Notes
 
 > We believe in radical transparency. Here are the important limitations and clarifications you should know before using this project.
