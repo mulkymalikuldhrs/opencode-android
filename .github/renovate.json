@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":automergeDigest",
+    ":automergePatch",
+    "group:allNonMajor"
+  ],
+  "labels": ["dependencies", "automated"],
+  "assignees": ["mulkymalikuldhrs"],
+  "reviewers": ["mulkymalikuldhrs"],
+  "automerge": true,
+  "automergeType": "pr",
+  "platformAutomerge": true,
+  "prCreation": "immediate",
+  "rebaseWhen": "behind-base-branch",
+  "schedule": ["before 5am on Monday"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "automerge": true
+    }
+  ]
+}
