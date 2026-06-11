@@ -1,0 +1,59 @@
+{
+  "name": "project",
+  "description": "An open source project by mulkymalikuldhrs seeking contributors",
+  "keywords": [
+    "open-source",
+    "contributions-welcome",
+    "good-first-issue",
+    "help-wanted",
+    "hacktoberfest",
+    "looking-for-contributors",
+    "beginner-friendly",
+    "ai",
+    "machine-learning",
+    "typescript",
+    "python",
+    "javascript"
+  ],
+  "homepage": "https://mulkymalikuldhrs.github.io/contribute-to-our-projects/",
+  "repository": "https://github.com/mulkymalikuldhrs",
+  "license": "MIT",
+  "author": {
+    "name": "Mulky Malikul Adhr",
+    "url": "https://github.com/mulkymalikuldhrs"
+  },
+  "contributing": {
+    "url": "./CONTRIBUTING.md",
+    "guide": "https://mulkymalikuldhrs.github.io/contribute-to-our-projects/",
+    "good_first_issues": true,
+    "help_wanted": true,
+    "beginner_friendly": true,
+    "hacktoberfest": true
+  },
+  "search_engine": {
+    "indexable": true,
+    "crawlable": true,
+    "structured_data": true,
+    "sitemap_include": true
+  },
+  "bots": {
+    "dependabot": true,
+    "renovate": true,
+    "sonarcloud": true,
+    "codeql": true,
+    "snyk": true,
+    "codeclimate": true,
+    "codecov": true,
+    "travis_ci": true,
+    "github_actions": true
+  },
+  "social": {
+    "github": "https://github.com/mulkymalikuldhrs",
+    "contributor_hub": "https://mulkymalikuldhrs.github.io/contribute-to-our-projects/"
+  },
+  "meta": {
+    "generated": "2026-06-11",
+    "version": "1.0.0",
+    "format": "repo-metadata-v1"
+  }
+}
