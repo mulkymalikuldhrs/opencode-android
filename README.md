@@ -1,29 +1,22 @@
-<a href="https://github.com/mulkymalikuldhrs/opencode-android">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e293b,100:334155&height=220&section=header&text=Opencode+Android&fontSize=42&fontColor=8B5CF6&animation=fadeIn&fontAlignY=30&desc=AI+Coding+Agent+Client&descSize=16&descColor=3DDC84&descAlignY=50" />
-</a>
+<img src="docs/banner.png" width="100%">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e293b,100:334155&height=220&section=header&text=Opencode+Android&fontSize=42&fontColor=8B5CF6&animation=fadeIn&fontAlignY=30&desc=AI+Coding+Agent+Client&descSize=16&descColor=3DDC84&descAlignY=50" />
 
 <div align="center">
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=8B5CF6&center=true&vCenter=true&width=700&lines=Native+Android+AI+Coding+Client;Chat+%2B+Terminal+%2B+Code+Editor;75%2B+LLM+Providers+via+OpenCode;Material+Design+3+Dark+Theme)](https://git.io/typing-svg)
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=8B5CF6&center=true&vCenter=true&width=700&lines=Native+Android+AI+Coding+Client;Chat+%2B+Terminal+%2B+Code+Editor;75%2B+LLM+Providers+via+OpenCode;Material+Design+3+Dark+Theme" alt="Typing SVG" />
+  </a>
+</div>
 
 <br/>
+
+<div align="center">
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-100%-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-7.0+-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![Material 3](https://img.shields.io/badge/Material-3-8B5CF6?style=for-the-badge&logo=materialdesign&logoColor=white)](https://m3.material.io)
 [![SSE](https://img.shields.io/badge/SSE-Streaming-f97316?style=for-the-badge&logo=serverless&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
-[![Version](https://img.shields.io/badge/v2.0.0-stable-22c55e?style=for-the-badge&logo=semver&logoColor=white)](https://github.com/mulkymalikuldhrs/opencode-android/releases)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
-
-<br/>
-
-[![GitHub Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/opencode-android?style=for-the-badge&logo=github&color=gold&label=Stars)](https://github.com/mulkymalikuldhrs/opencode-android/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/mulkymalikuldhrs/opencode-android?style=for-the-badge&logo=github&color=blue&label=Forks)](https://github.com/mulkymalikuldhrs/opencode-android/fork)
-[![GitHub Issues](https://img.shields.io/github/issues/mulkymalikuldhrs/opencode-android?style=for-the-badge&logo=github&color=red&label=Issues)](https://github.com/mulkymalikuldhrs/opencode-android/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/mulkymalikuldhrs/opencode-android?style=for-the-badge&logo=github&color=teal&label=PRs)](https://github.com/mulkymalikuldhrs/opencode-android/pulls)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/mulkymalikuldhrs/opencode-android?style=for-the-badge&logo=github&color=8B5CF6&label=Last%20Commit)](https://github.com/mulkymalikuldhrs/opencode-android/commits/main)
-
-<br/>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 
 </div>
 
@@ -33,80 +26,51 @@
 
 **Opencode Android** is a native Android client for the [OpenCode](https://github.com/opencode-ai/opencode) AI coding agent. It connects to a running OpenCode server and provides real-time AI chat, terminal access, file browsing, and a code editor — all wrapped in a polished **Material Design 3 dark theme** with SSE streaming for instant AI responses and support for **75+ LLM providers** through the server.
 
-> ⚠️ **Important**: This is a **client application**. It **requires a running OpenCode server** to function. It is **not** a standalone AI tool. All AI capabilities, terminal execution, and file operations are handled by the connected server.
+> **Important:** This is a **client application**. It **requires a running OpenCode server** to function. It is **not** a standalone AI tool. All AI capabilities, terminal execution, and file operations are handled by the connected server.
 
 The app transforms your Android device into a portable interface for your OpenCode-powered development environment — chat with AI about your codebase, run terminal commands, browse project files, and edit source code, all from your phone or tablet.
 
----
-
 ## Features
 
-### 🤖 AI Chat with SSE Streaming
+### AI Chat with SSE Streaming
 Real-time conversations with AI through Server-Sent Events streaming. Responses appear token-by-token as they're generated, providing a fluid and responsive chat experience. Supports switching between 75+ LLM providers configured on the server.
 
-### 💻 Terminal Access
+### Terminal Access
 Full terminal emulator that connects to the OpenCode server's shell. Execute commands, run build scripts, manage processes, and interact with the server's filesystem — all from your Android device. Commands execute on the **server machine**, not locally.
 
-### 📝 Code Editor
+### Code Editor
 Built-in code editor with syntax highlighting for multiple programming languages. Edit files directly on the server, save changes, and see them reflected instantly. Supports common editor features like line numbers, code folding, and search.
 
-### 📂 File Manager
+### File Manager
 Browse and navigate the project file tree on the connected server. Open files for viewing or editing, create new files and directories, and manage your project structure — all through a clean, intuitive interface.
 
-### 🎨 Material Design 3 Dark Theme
+### Material Design 3 Dark Theme
 Native Android UI built with Material Design 3 components, featuring a dark theme optimized for extended coding sessions. Dynamic color support on Android 12+ for a personalized look.
 
-### 💬 Session Management
+### Session Management
 Multiple conversation sessions with full history and context persistence. Switch between sessions, review past conversations, and maintain separate contexts for different projects or tasks.
 
-### 🔌 Server Connection Management
+### Server Connection Management
 Configure and manage connections to one or more OpenCode server instances. Quick-switch between servers, save connection profiles, and monitor connection status in real-time.
 
-### 📱 Responsive Layout
+### Responsive Layout
 Adaptive UI that works across phones, foldables, and tablets. Split-screen support for chat + editor or terminal + file browser on larger screens.
 
----
+## Honest Notes
 
-## Architecture
+> We believe in radical transparency. Here are the important limitations and clarifications you should know before using this project.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    ANDROID DEVICE                        │
-│  ┌───────────────────────────────────────────────────┐  │
-│  │              Kotlin Application                    │  │
-│  │  ┌──────────┐ ┌──────────┐ ┌───────────────────┐ │  │
-│  │  │ AI Chat  │ │ Terminal │ │  Code Editor /    │ │  │
-│  │  │  (SSE)   │ │  (WS)    │ │  File Browser     │ │  │
-│  │  └────┬─────┘ └────┬─────┘ └────────┬──────────┘ │  │
-│  │       │             │                │            │  │
-│  │  ┌────┴─────────────┴────────────────┴──────────┐ │  │
-│  │  │          OkHttp SSE / WebSocket Client        │ │  │
-│  │  └────────────────────┬─────────────────────────┘ │  │
-│  └───────────────────────┼───────────────────────────┘  │
-│                          │ HTTP / SSE / WebSocket        │
-└──────────────────────────┼──────────────────────────────┘
-                           │ Network
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│                   OPENCODE SERVER                         │
-│  ┌────────────┐ ┌──────────────┐ ┌───────────────────┐  │
-│  │  LLM API   │ │  Shell /     │ │  Filesystem /     │  │
-│  │  (75+      │ │  Terminal    │ │  Project Files    │  │
-│  │  Providers)│ │  Execution   │ │  Management       │  │
-│  └─────┬──────┘ └──────┬───────┘ └────────┬──────────┘  │
-│        │               │                   │             │
-│  ┌─────┴───────────────┴───────────────────┴──────────┐  │
-│  │              OpenCode Agent Engine                  │  │
-│  │        (AI Coding Agent Core Logic)                │  │
-│  └────────────────────────────────────────────────────┘  │
-└──────────────────────────────────────────────────────────┘
-```
+| Topic | Reality |
+|-------|---------|
+| **Server Required** | This app is a **client only**. It cannot function without a running OpenCode server instance. |
+| **AI Capabilities** | All AI features depend on the server's LLM provider configuration. No AI runs on the Android device. |
+| **Terminal Execution** | Terminal commands execute on the **server machine**, not locally on your Android device. Be cautious with commands. |
+| **File Operations** | File browsing and editing operate on the **server's filesystem**, not your phone's local storage. |
+| **Network Dependency** | A stable network connection to the server is required. No offline functionality. |
+| **LLM Provider Costs** | Usage costs depend on your server's LLM provider configuration. The app itself does not manage API keys or billing. |
+| **Security** | Ensure your OpenCode server is properly secured. The app transmits commands and code over the network. Use HTTPS/WSS in production. |
 
-> The Android app is a **thin client** — all heavy computation, AI inference, and file operations happen on the OpenCode server.
-
----
-
-## Architecture & Data Flow Visualizations
+## Visual Architecture
 
 ### Thin Client Architecture — Android App to OpenCode Server
 
@@ -117,7 +81,7 @@ graph TB
         Term_UI["Terminal UI<br/>WebSocket Shell"]
         Editor_UI["Code Editor<br/>Syntax Highlight"]
         File_UI["File Manager<br/>Remote Tree"]
-        Session_UI["Session Manager<br/>History & Context"]
+        Session_UI["Session Manager<br/>History and Context"]
     end
 
     subgraph Transport["Network Transport"]
@@ -208,7 +172,7 @@ sequenceDiagram
     TermUI-->>User: New prompt line
 ```
 
-### Android App Architecture — Activities, Fragments & Security
+### Android App Architecture — Activities, Fragments and Security
 
 ```mermaid
 graph TB
@@ -269,23 +233,7 @@ graph TB
     style Security fill:#4a1d0a,stroke:#f59e0b,color:#fef3c7
 ```
 
-> **Maturity Note**: Opencode Android is in active development. The SSE chat flow and server connection management are the most polished features. Terminal WebSocket integration is functional. The code editor and file manager support basic operations — advanced features (multi-cursor, project-wide search) are planned. Security hardening (certificate pinning, encrypted preferences) is partially implemented and will be strengthened in future releases.
-
----
-
-## Honest Notes
-
-> We believe in radical transparency. Here are the important limitations and clarifications you should know before using this project.
-
-| Topic | Reality |
-|-------|---------|
-| **Server Required** | This app is a **client only**. It cannot function without a running OpenCode server instance. |
-| **AI Capabilities** | All AI features depend on the server's LLM provider configuration. No AI runs on the Android device. |
-| **Terminal Execution** | Terminal commands execute on the **server machine**, not locally on your Android device. Be cautious with commands. |
-| **File Operations** | File browsing and editing operate on the **server's filesystem**, not your phone's local storage. |
-| **Network Dependency** | A stable network connection to the server is required. No offline functionality. |
-| **LLM Provider Costs** | Usage costs depend on your server's LLM provider configuration. The app itself does not manage API keys or billing. |
-| **Security** | Ensure your OpenCode server is properly secured. The app transmits commands and code over the network. Use HTTPS/WSS in production. |
+> **Maturity Note:** Opencode Android is in active development. The SSE chat flow and server connection management are the most polished features. Terminal WebSocket integration is functional. The code editor and file manager support basic operations — advanced features (multi-cursor, project-wide search) are planned. Security hardening (certificate pinning, encrypted preferences) is partially implemented and will be strengthened in future releases.
 
 ---
 
@@ -317,7 +265,6 @@ graph TB
 ### Build from Source (Alternative)
 
 ```bash
-# Clone the repository
 git clone https://github.com/mulkymalikuldhrs/opencode-android.git
 cd opencode-android
 
@@ -330,18 +277,6 @@ cd opencode-android
 # Or build release APK
 ./gradlew assembleRelease
 ```
-
----
-
-## Screenshots
-
-> 📸 Screenshots coming soon — the app is under active development.
-
-| AI Chat | Terminal | Code Editor | File Manager |
-|---------|----------|-------------|--------------|
-| *Placeholder* | *Placeholder* | *Placeholder* | *Placeholder* |
-
----
 
 ## Configuration
 
@@ -367,7 +302,28 @@ cd opencode-android
 
 LLM providers are configured on the **OpenCode server side**. The app displays available providers from the server and allows you to switch between them during a chat session. Provider availability depends entirely on your server configuration.
 
----
+## Project Structure
+
+```
+opencode-android/
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/opencode/android/
+│   │   │   ├── ui/              # Activities, Fragments, Composables
+│   │   │   ├── viewmodel/       # ViewModels for MVVM architecture
+│   │   │   ├── repository/      # Data repositories
+│   │   │   ├── network/         # OkHttp SSE client, WebSocket
+│   │   │   ├── model/           # Data models and entities
+│   │   │   └── util/            # Extensions, helpers, constants
+│   │   ├── res/                 # Layouts, drawables, themes
+│   │   └── AndroidManifest.xml
+│   ├── build.gradle.kts
+│   └── proguard-rules.pro
+├── gradle/
+├── build.gradle.kts
+├── settings.gradle.kts
+└── gradle.properties
+```
 
 ## Building from Source
 
@@ -398,34 +354,8 @@ cd opencode-android
 ./gradlew connectedAndroidTest
 
 # 6. Generate signed APK
-#    Configure signing in app/build.gradle or use:
 ./gradlew assembleRelease -Psigning.keyStorePath=/path/to/keystore
 ```
-
-### Project Structure
-
-```
-opencode-android/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/opencode/android/
-│   │   │   ├── ui/              # Activities, Fragments, Composables
-│   │   │   ├── viewmodel/       # ViewModels for MVVM architecture
-│   │   │   ├── repository/      # Data repositories
-│   │   │   ├── network/         # OkHttp SSE client, WebSocket
-│   │   │   ├── model/           # Data models and entities
-│   │   │   └── util/            # Extensions, helpers, constants
-│   │   ├── res/                 # Layouts, drawables, themes
-│   │   └── AndroidManifest.xml
-│   ├── build.gradle.kts
-│   └── proguard-rules.pro
-├── gradle/
-├── build.gradle.kts
-├── settings.gradle.kts
-└── gradle.properties
-```
-
----
 
 ## Contributing
 
@@ -433,11 +363,11 @@ Contributions are welcome and appreciated! Here's how you can help:
 
 ### Ways to Contribute
 
-- 🐛 **Bug Reports** — Open an issue with steps to reproduce
-- 💡 **Feature Requests** — Suggest new features or improvements
-- 🔧 **Code Contributions** — Submit pull requests with fixes or features
-- 📖 **Documentation** — Help improve docs, guides, and README
-- 🌍 **Translations** — Add support for new languages
+- Bug Reports — Open an issue with steps to reproduce
+- Feature Requests — Suggest new features or improvements
+- Code Contributions — Submit pull requests with fixes or features
+- Documentation — Help improve docs, guides, and README
+- Translations — Add support for new languages
 
 ### Contribution Workflow
 
@@ -455,8 +385,6 @@ Contributions are welcome and appreciated! Here's how you can help:
 - Keep PRs focused — one feature or fix per PR
 - Update documentation for any changed behavior
 
----
-
 ## Disclaimer
 
 **For Education and Research Purpose Only**
@@ -469,47 +397,21 @@ This project is provided strictly for educational and research purposes. The aut
 - All AI-generated content is the responsibility of the **server operator and LLM provider**
 - This software does **not** provide AI capabilities on its own — it is a client interface
 
----
-
 ## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-```
-MIT License
-
-Copyright © 2024-2026 Mulky Malikul Dhaher. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
 ## Author
+
+<div align="center">
 
 **Mulky Malikul Dhaher**
 
 [![GitHub](https://img.shields.io/badge/GitHub-mulkymalikuldhrs-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mulkymalikuldhrs)
 [![Email](https://img.shields.io/badge/Email-mulkymalikudhr@mail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mulkymalikudhr@mail.com)
 
+</div>
+
 ---
 
-<a href="https://github.com/mulkymalikuldhrs/opencode-android">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=100:334155,50:1e293b,0:0f172a&height=100&section=footer" />
-</a>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=100:334155,50:1e293b,0:0f172a&height=100&section=footer" />
