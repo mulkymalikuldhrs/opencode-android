@@ -1,0 +1,83 @@
+# Auto-Fix Bot Configuration
+# This file triggers various GitHub bots and CI/CD tools for automatic code fixes
+
+version: 2
+
+# Trigger for GitHub Dependabot auto-fix
+dependabot:
+  enabled: true
+  schedule: weekly
+  auto_merge: true
+  reviewers:
+    - mulkymalikuldhrs
+
+# Auto-fix configuration for common tools
+autofix:
+  # ESLint auto-fix
+  eslint:
+    enabled: true
+    auto_fix: true
+    extensions:
+      - .js
+      - .ts
+      - .tsx
+      - .jsx
+    
+  # Prettier auto-format
+  prettier:
+    enabled: true
+    auto_fix: true
+    
+  # Python auto-fix (Black, isort, autoflake)
+  python:
+    black:
+      enabled: true
+    isort:
+      enabled: true
+    autoflake:
+      enabled: true
+      remove_unused_imports: true
+      remove_unused_variables: true
+    
+  # Markdown lint auto-fix
+  markdownlint:
+    enabled: true
+    auto_fix: true
+    
+  # YAML lint
+  yamllint:
+    enabled: true
+
+# Code quality bots
+code_quality:
+  # SonarCloud integration
+  sonarcloud:
+    enabled: true
+    auto_fix_suggestions: true
+    
+  # CodeClimate integration  
+  codeclimate:
+    enabled: true
+    
+  # GitHub CodeQL
+  codeql:
+    enabled: true
+    languages:
+      - javascript
+      - typescript
+      - python
+
+# Security scanning
+security:
+  snyk:
+    enabled: true
+  trivy:
+    enabled: true
+  github_advisories:
+    enabled: true
+
+# Search engine optimization
+seo:
+  sitemap: true
+  structured_data: true
+  open_graph: true
