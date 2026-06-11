@@ -1,4 +1,3 @@
-<img src="docs/banner.png" width="100%">
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e293b,100:334155&height=220&section=header&text=Opencode+Android&fontSize=42&fontColor=8B5CF6&animation=fadeIn&fontAlignY=30&desc=AI+Coding+Agent+Client&descSize=16&descColor=3DDC84&descAlignY=50" />
 
